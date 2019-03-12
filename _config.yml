@@ -1,0 +1,12 @@
+title: quadriplanar's Blog
+author: quadriplanar
+#email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Work in Progress: Blog and showcase for recent ComSci grad quadriplanar
+# social links
+#twitter_username: your-twitter-handle
+#github_username:  your-github-handle
+
+show_excerpts: true # set to false to remove excerpts on the homepage
+
+theme: minima
