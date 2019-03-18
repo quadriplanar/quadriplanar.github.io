@@ -35,7 +35,7 @@ function start(){
 	tiles = [];
 
 
-	//establish whole grid as water
+	//establish whole grid as water or "w"
 	for(var i=0; i<tileWidth; i++){
 		tiles[i] = [];
 		for(var j=0; j<tileHeight; j++){
@@ -43,12 +43,14 @@ function start(){
 		}
 	}
 	
+	
+	//uses rndInt function(defined below) to pick random tiles to turn into a ground or "g" tile
 	for(var i=0; i<seeds; i++){
 		tiles[rndInt(0, tileWidth)][rndInt(0, tileHeight)] = "g";
 	}
 	
 
-	//test print of array
+	//prints the array tiles as a simple characters and color codes them for better visuals
 	for(var i=0; i<tileWidth; i++){
 		for(var j=0; j<tileHeight; j++){
 			if(tiles[i][j] == "g"){
@@ -60,6 +62,7 @@ function start(){
 			context.fillText(String.fromCharCode(9639), i*10 + 10, j*10 + 10);
 		}
 	}
+	//adds even listeners to track input on the slider and submit button
 	slider.addEventListener("click", function() { document.getElementById("value").innerHTML = slider.value; }, false);
 	document.getElementById("submit").addEventListener("click", function() { start();}, false);
 }
