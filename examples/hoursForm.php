@@ -1,5 +1,5 @@
 <?php
-echo "anything at all";
+print "anything at all";
 /*if($_POST["submit"]) {
     $recipient="tmoor025@uottawa.ca"; //Enter your mail address
     $subject="Contact from Website"; //Subject
