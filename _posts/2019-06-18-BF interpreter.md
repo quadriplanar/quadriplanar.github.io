@@ -1,0 +1,18 @@
+Title: "BF interpreter" Date: 2019-06-18
+
+<p> [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) or BF is an esoteric, turing complete programming language. It has 8 simple commands, but can technically be used to program an desired function</p>
+			<p> The commands are:</p>
+			<table>
+				<tr><td> < </td> <td> moves the pointer down 1 memory position</td> </tr>
+				<tr><td> > </td> <td> moves the pointer up 1 memory position</td> </tr>
+				<tr><td> + </td> <td> Increments the current memory position by 1</td> </tr>
+				<tr><td> - </td> <td> decrements the current memory position by 1</td> </tr>
+				<tr><td> . </td> <td> Prints the ASCII value of the current memory position</td> </tr>
+				<tr><td> , </td> <td> takes an input and stores its value in the current position</td> </tr>
+				<tr><td> [ </td> <td> if the current memory position is 0, skips to the matching ]</td> </tr>
+				<tr><td> ] </td> <td> if the current memory position is not 0, returns to the matching [ (together [ and ] allow loops)</td> </tr>
+				<tr> any other characters or white space are ignored, and can be used as comments </tr>
+			</table>		
+      
+      
+      [Click Here](https://quadriplanar.github.io/examples/interpreters/BF/BF.html) for the web app, or [Here](https://github.com/quadriplanar/quadriplanar.github.io/tree/master/examples/interpreters/BF) for the repository
