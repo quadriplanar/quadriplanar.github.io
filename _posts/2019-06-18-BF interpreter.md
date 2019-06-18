@@ -2,7 +2,7 @@ Title: "BF interpreter" Date: 2019-06-18
 
 [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) or BF is an esoteric, turing complete programming language. It has 8 simple commands, but can technically be used to program any desired function. However, any reasonably complex program can quickly become very complicated and very difficult for human reading. For example, a program that prints "Hello World!" is:
 
->++++++++\[>++++\[>++>+++>+++>+<<<<-\]>+>+>->>+\[<\]<-\]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.
+>++++++++\[>++++\[>++>+++>+++>+<<<<-\]>+>+>->>+\[<\]<-\]>>.>- - -.+++++++..+++.>>.<-.<.+++.- - - - - -.- - - - - - - -.>>+.>++.
 
 For this reason the language is not very useful in pratice, but is an interesting challenge language to try.
 
