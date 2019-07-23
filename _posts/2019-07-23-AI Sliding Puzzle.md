@@ -10,9 +10,9 @@ In future I plan to add some more modes as well.
 
 The app is [here](https://quadriplanar.github.io/examples/AI/SlidingPuzzle/SlidingPuzzle.html) and the repository is [here](https://github.com/quadriplanar/quadriplanar.github.io/tree/master/examples/AI/SlidingPuzzle)
 
-It has options to select the size of the puzzle (within reasonable sizes), set how many moves the execution should be stopped after if it hasn't found a solution, and to pick which mode to use.
+It has options to select the size of the puzzle (within reasonable bounds), set how many moves the execution should be stopped after (if it hasn't found a solution), and to pick which mode to use.
 
-To see the efficiency of these first 2 mode I set it up to run each 1000 time on a 4x4 puzzle with a maximum move count of 200. The random movement took an average of 183.75 moves to completion, and the "next best" took 142.6.
+To see the efficiency of these first 2 modes I set it up to run each 1000 times on a 4x4 puzzle with a maximum move count of 200. The random movement took an average of 183.75 moves to completion, and the "next best" took 142.6.
 
 <details>
   <summary>number of moves for each random trial</summary>
