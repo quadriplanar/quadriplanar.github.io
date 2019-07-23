@@ -45,13 +45,13 @@ function playGame(){
 		drawCurrentBoard();
 		turns++;
 		if(currentBoard.checkSolved()){//solved so quick exit
-			//alert("Solved in "+turns+" moves");
+			alert("Solved in "+turns+" moves");
 			console.log("Solved in "+turns+" moves");
 			break;
 		}
 	}
 	if(turns >= maxMoves){
-		//alert("timed out after "+turns+" moves");
+		alert("timed out after "+turns+" moves");
 		console.log("timed out after "+turns+" moves");
 	}
 	return turns;
