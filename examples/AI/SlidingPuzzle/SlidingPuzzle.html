@@ -1,0 +1,26 @@
+<DOCTYPE! html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Sliding Puzzle </title>
+		<link rel = "stylesheet" type = "text/css" href = "SlidingPuzzle.css">
+		<script src = "SlidingPuzzleBoard.js"></script>
+		<script src = "SlidingPuzzle.js"> </script>
+	</head>
+	
+	<body>
+		Select the size of the puzzle: <input type="range" min="1" max="7" value="3" id="size">
+		</br>
+		Select the maximum number of moves before timeout: <input type="number" id="maxMoves" value="200" min="1" max="500">
+		</br>
+		Select the style of algorithm to use: 
+		<select id="type">
+			<option value="0">Best Next State</option>
+			<option value="1">Random Moves</option>
+		</select> 
+		<input type="button" value = "submit" id ="submit" />
+		</br>
+		<div id="output"></div>
+	</body>	
+</html>
