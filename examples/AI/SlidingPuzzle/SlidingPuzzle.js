@@ -115,11 +115,12 @@ function scoreBased(){
 		if(scores[i]>max){
 			max=scores[i];
 			index=i;
-		}else{
-			//nothing better so make a random move
-			//console.log("no better option so will take a random move");
-			index = Math.floor(Math.random()*4);
 		}
+	}
+	if(index==-1){
+		//nothing better so make a random move
+		//console.log("no better option so will take a random move");
+		index = Math.floor(Math.random()*4);
 	}
 	return index;
 }
