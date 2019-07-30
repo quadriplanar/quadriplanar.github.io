@@ -60,8 +60,7 @@ function playGame(){
 //helper function run the switch to pick which method to use
 function getNextMove(){
 	switch(type){ 
-		case 0:
-		case 2:
+		case 0: //look for the next state with the most correct
 			return scoreBased();
 			break;
 		case 1: //move randomly
@@ -84,7 +83,6 @@ function evaluateBoard(possibleBoard){
 	var score = 0;
 	
 	switch(type){
-		//simply checks how many tiles are in the proper place (worst =0, best =size^2)
 		case 0:
 			for(var i =0; i< possibleBoard.size; i++){
 				for(var j =0; j < possibleBoard.size; j++){
@@ -94,24 +92,6 @@ function evaluateBoard(possibleBoard){
 					}
 				}
 			}
-			break;
-		//checks how many moves each tile is away from proper but simplifies by disregarding the need to only slide into the empty position. number of moves is inverted so that higher score is less moves
-		case 2:
-			for(var i =0; i< possibleBoard.size; i++){
-				for(var j =0; j < possibleBoard.size; j++){
-					var x=possibleBoard.b[i][j];
-					var properI=-1;
-					for(var k=0;k< correctBoard.size; k++){ //find which board row the current tile SHOULD be in
-						if(correctBoard.b[k].includes(x)){
-							properI=k;
-						}
-					}
-					var properJ=x-properI*correctBoard.size; // since board is created using x=i*s+j then j=x-i*s
-					score+=Math.abs(i-properI);
-					score+=Math.abs(j-properJ);
-				}
-			}		
-			score = size*size-score; // inverts the score and keeps it positive
 			break;
 	}
 	return score;
