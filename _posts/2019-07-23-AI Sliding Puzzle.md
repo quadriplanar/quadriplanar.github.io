@@ -1,5 +1,6 @@
 Title: "AI Heuristic Sliding Puzzle" Date: 2019-07-23
 
+#The statistics here are out of date due to bugs, please see the new blog post [here](https://quadriplanar.github.io/2019/07/30/Improved-AI-Sliding-Puzzle.html)
 
 This is a much improved version of the sliding puzzle from last post, with some of the heuristic "AI" that we covered in the Intro to Artificial Intelligence course in University.
 It has 2 modes currently:
