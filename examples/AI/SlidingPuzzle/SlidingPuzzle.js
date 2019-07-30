@@ -33,7 +33,6 @@ function drawCurrentBoard(){
 	//console.log("done printing the board");
 }
 
-//counts turns ans process the game
 function playGame(){
 	var turns =0;
 	while(turns < maxMoves){
@@ -57,10 +56,10 @@ function playGame(){
 	return turns;
 }
 
-//helper function run the switch to pick which method to use
 function getNextMove(){
 	switch(type){ 
-		case 0: //look for the next state with the most correct
+		case 0:
+		case 2:
 			return scoreBased();
 			break;
 		case 1: //move randomly
@@ -69,20 +68,16 @@ function getNextMove(){
 	}
 }
 
-//this method can be modified to try different heuristics for solving the board
+//this method can be added to try different heuristics for solving the board
 function evaluateBoard(possibleBoard){
 	//use the creator functions to get a board that is correct and the current size to check against
 	var correctBoard = new board(size);
 	correctBoard.initializeBoard();
-	//this algorithm checks how many tiles are in proper place
-	/*
-	console.log("looking at arrays:");
-	console.log("		"+correctBoard.b);
-	console.log("		"+possibleBoard.b);
-	*/
+	
 	var score = 0;
 	
 	switch(type){
+		//simply checks how many tiles are in the proper place (worst =0, best =size^2)
 		case 0:
 			for(var i =0; i< possibleBoard.size; i++){
 				for(var j =0; j < possibleBoard.size; j++){
@@ -93,16 +88,33 @@ function evaluateBoard(possibleBoard){
 				}
 			}
 			break;
+		//checks how many moves each tile is away from proper but simplifies by disregarding the need to only slide into the empty position. number of moves is inverted so that higher score is less moves
+		case 2:
+			for(var i =0; i< possibleBoard.size; i++){
+				for(var j =0; j < possibleBoard.size; j++){
+					var x=possibleBoard.b[i][j];
+					var properI=-1;
+					for(var k=0;k< correctBoard.size; k++){ //find which board row the current tile SHOULD be in
+						if(correctBoard.b[k].includes(x)){
+							properI=k;
+						}
+					}
+					var properJ=x-properI*correctBoard.size; // since board is created using x=i*s+j then j=x-i*s
+					score+=Math.abs(i-properI);
+					score+=Math.abs(j-properJ);
+				}
+			}		
+			score = size*size*size*size-score; // inverts the score and keeps it positive
+			break;
 	}
 	return score;
 	
 }
 
-//looks at an array of scored options and chooses the next best to proceed to
 function scoreBased(){
 	var moves = currentBoard.enumerateMoves();
 	var scores = [];
-	for(var i=0; i<moves.length; i++){
+	for(var i=0; i<4; i++){
 		if(moves[i]){ //if its defined
 			scores[i] = evaluateBoard(moves[i]);
 		}
@@ -111,7 +123,7 @@ function scoreBased(){
 	//find the best score in the array, then use that move
 	var max =evaluateBoard(currentBoard);
 	var index=-1;
-	for(var i=0; i<scores.length; i++){
+	for(var i=0; i<4; i++){
 		if(scores[i]>max){
 			max=scores[i];
 			index=i;
@@ -119,13 +131,12 @@ function scoreBased(){
 	}
 	if(index==-1){
 		//nothing better so make a random move
-		//console.log("no better option so will take a random move");
+		console.log("no better option so will take a random move");
 		index = Math.floor(Math.random()*4);
 	}
 	return index;
 }
 
-//when submitted, reads in the value and starts the processing
 function start(){
 	size = document.getElementById("size").value;
 	maxMoves = document.getElementById("maxMoves").value;
@@ -138,6 +149,7 @@ function start(){
 	currentBoard.shuffleBoard();
 	drawCurrentBoard();
 	playGame();
+
 	
 }
 
